@@ -13,10 +13,10 @@ $result = $db->query($sql);
     <script src="https://cdn.tailwindcss.com"></script>
     <title>flying</title>
 </head>
-<body >
+<body class="" style="background-image: url('img/voyag.jpg'); background-size: cover; background-position: center;">
     
 <header class="bg">
-    <div class="flex justify-around h-14 items-center w-screen bg-black ">
+    <div class="flex justify-around h-14 items-center w-screen bg-blue-700 opacity-90">
         <div class= " h-full ">
             
             <img class="h-full " src="logo.png" alt="logo">
@@ -31,39 +31,42 @@ $result = $db->query($sql);
         </div>
     </div>
 </header>
-<div class="flex justify-center items-center">
-    <form action="" method="post" class="bg-red-500 p-2">
-        <div >
-            <label for="titre">titre :</label>
-            <input type="text" name="titre" id="titre" class="m-2 border-solid rounded-lg">
+<div class="flex justify-center items-center opacity-90 my-4 p-2">
+    <form action="" method="post" class="bg-blue-500 p-10 w-[50%] rounded-3xl space-y-2">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="titre" class="text-white">Titre :</label>
+            <input type="text" name="titre" id="titre" class=" px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="description">description :</label>
-            <input type="text" name="description" id="description" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="description" class="text-white">Description :</label>
+            <input type="text" name="description" id="description" class=" px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="destination">destination :</label>
-            <input type="text" name="destination" id="destination" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="destination" class="text-white">Destination :</label>
+            <input type="text" name="destination" id="destination" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="prix">prix :</label>
-            <input type="number" name="prix" id="prix" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="prix" class="text-white">Prix :</label>
+            <input type="number" name="prix" id="prix" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="date_debut">date debut :</label>
-            <input type="date" name="date_debut" id="date_debut" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="date_debut" class="text-white">Date début :</label>
+            <input type="date" name="date_debut" id="date_debut" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="date_fin">date fin :</label>
-            <input type="date" name="date_fin" id="date_fin" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="date_fin" class="text-white">Date fin :</label>
+            <input type="date" name="date_fin" id="date_fin" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <div>
-            <label for="places_disponibles">places disponibles :</label>
-            <input type="number" name="places_disponibles" id="places_disponibles" class="m-2 border-solid rounded-lg">
+        <div class="transition-all duration-300 ease-in-out hover:scale-105">
+            <label for="places_disponibles" class="text-white">Places disponibles :</label>
+            <input type="number" name="places_disponibles" id="places_disponibles" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
         </div>
-        <input  value="submit" name="submit" type="submit" class="bg-blue-500 p-2 rounded-lg">                    
+        <div class="flex justify-center">
+            <input type="submit" value="Submit" name="submit" class="bg-green-500 text-white p-2 rounded-2xl text-lg font-semibold w-[60%] hover:bg-green-600 transform transition-all duration-300 hover:scale-105">
+        </div>
     </form>
 </div>
+
 <?php
 if (isset($_POST['submit'])) {
     $titre = $_POST['titre'];
@@ -85,34 +88,36 @@ if (isset($_POST['submit'])) {
 // }
 // }
 ?>
-<table class="border p-2">
-    <thead>
-        <tr>
-            <th>Id activite</th>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Destination</th>
-            <th>Prix</th>
-            <th>Date de debut</th>
-            <th>Date de fin</th>
-            <th>Places disponible</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php  while($row = $result->fetch_assoc()): ?> 
-        <tr>
-            <td><?php echo $row["id_activite"]; ?></td>
-            <td><?php echo $row["titre"]; ?></td>
-            <td><?php echo $row["description"]; ?></td>
-            <td><?php echo $row["destination"]; ?></td>
-            <td><?php echo $row["prix"]; ?></td>
-            <td><?php echo $row["date_debut"]; ?></td>
-            <td><?php echo $row["date_fin"]; ?></td>
-            <td><?php echo $row["places_disponibles"]; ?></td>
-        </tr>
-        <?php endwhile; ?>
-    </tbody>
-</table>
+<div class="flex justify-center ">
+    <table class="bg-blue-500 opacity-90 border-collapse border border-gray-300 ">
+        <thead class="bg-blue-700">
+            <tr class="text-white">
+                <th class="p-2 border border-blue-400">Id activite</th>
+                <th class="p-2 border border-blue-400">Titre</th>
+                <th class="p-2 border border-blue-400">Description</th>
+                <th class="p-2 border border-blue-400">Destination</th>
+                <th class="p-2 border border-blue-400">Prix</th>
+                <th class="p-2 border border-blue-400">Date de debut</th>
+                <th class="p-2 border border-blue-400">Date de fin</th>
+                <th class="p-2 border border-blue-400">Places disponible</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php  while($row = $result->fetch_assoc()): ?> 
+            <tr class="border-blue-200 hover:bg-blue-200">
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_activite"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["titre"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["description"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["destination"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["prix"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["date_debut"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["date_fin"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["places_disponibles"]; ?></td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
