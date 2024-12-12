@@ -1,10 +1,13 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$dbname = 'flying';
+require('connection.php');
 
-$db = mysqli_connect($host, $user, $pass, $dbname);
+if (isset($_POST["submit"]))
+{
+    // insertion f base doness
+    header("Location: reservation.php");
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,27 +16,31 @@ $db = mysqli_connect($host, $user, $pass, $dbname);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>flying</title>
 </head>
 <body >
     
 <header class="bg">
-    <div class="flex justify-around h-14 items-center w-screen bg-black opacity-70">
+    <div class="flex justify-around h-14 items-center w-screen bg-black ">
         <div class= " h-full ">
             
             <img class="h-full " src="logo.png" alt="logo">
         </div>
         <div>
             <ul class="flex text-white space-x-4">
-                <li>Activities</li>
-                <li>Reservations</li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="client.php">client</a></li>
+                <li><a href="activite.php">activite</a></li>
+                <li><a href="reservation.php">Reservations</a></li>
             </ul>
         </div>
     </div>
 </header>
 <section class="flex justif">
-            <div class="bg-gray-500 h-screen w-[15%]">Activities </div>
-            <div class="bg-gray-300 h-screen w-screen">Reservations</div>
+            <div class="bg-gray-500 h-screen w-[15%]">000000000000000</div>
+            <div class="bg-gray-300 h-screen w-screen">Formul
+                
+            </div>
 </section>
 
     
