@@ -42,7 +42,7 @@ $result=$db->query($sql);
         
     </div>
 </header>
-    <div>
+    <div class="bg-red-500 p-2">
         <form action="">
             <select name="" id="">
                 <option>Select client</option>
@@ -60,6 +60,17 @@ $result=$db->query($sql);
             </select>
             <select name="" id="">
                 <option>Select activite</option>
+                <?php 
+                $sql="SELECT titre FROM activite";
+                $result=$db->query($sql);
+
+                if($result){
+                    while($row=$result->fetch_assoc()){
+                        echo'<option value"'.$row['titre'].'">'.$row['titre'].'</option>';
+                    }
+                }
+                
+                ?>
             </select>
         </form>
     </div>
