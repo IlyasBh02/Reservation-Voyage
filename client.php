@@ -31,6 +31,7 @@ $result = $db->query($sql);
     </div>
 </header>
 <div class="flex justify-center items-center opacity-90 my-4 p-2">
+            <!--================ start form =================-->
     <form action="" method="post" class="bg-blue-500 w-[50%] p-6 rounded-3xl shadow-lg space-y-2">
         <div class="transition-all duration-300 ease-in-out hover:scale-105">
             <label for="nom">Nom :</label>
