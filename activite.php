@@ -36,7 +36,7 @@ $result = $db->query($sql);
         </div>
     </div>
 
-    <div>
+    <div class="w-screen">
         <div class="flex justify-center items-center opacity-90 my-4 p-2">
                 <!--================ start form =================-->
         <form action="" method="post" class="bg-blue-500 p-10 w-[50%] rounded-3xl space-y-2">
