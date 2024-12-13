@@ -37,7 +37,14 @@ if (isset($_POST["submit"]))
     </div>
 </header>
 <section class="flex justif">
-            <div class="bg-gray-500 h-screen w-[15%]">000000000000000</div>
+            <div class="bg-gray-500 h-screen w-[15%]">
+            <ul class="text-white space-x-4">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="client.php">client</a></li>
+                <li><a href="activite.php">activite</a></li>
+                <li><a href="reservation.php">Reservations</a></li>
+            </ul>
+            </div>
             <div class="bg-gray-300 h-screen w-screen">Formul
                 
             </div>

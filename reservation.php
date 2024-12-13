@@ -6,13 +6,6 @@ $sql = "SELECT * FROM `reservation`";
 // echo "test";
 $result=$db->query($sql);
 
-// if ($result->num_rows > 0) {
-//     // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//       echo "id: " . $row["id_reservation"]. " - id client : " . $row["id_client"]. " rezservation  " . $row["date_reservation"]. .$row["statut"]. "statut" . "<br>";
-//     }
-//   }
-//   echo "test2";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +32,6 @@ $result=$db->query($sql);
                 <li><a href="reservation.php">Reservations</a></li>
             </ul>
         </div>
-        
     </div>
 </header>
     <div class="flex justify-center items-center opacity-90 my-4 p-2">
@@ -51,13 +43,11 @@ $result=$db->query($sql);
                     <?php 
                     $sql="SELECT * FROM client";
                     $result=$db->query($sql);
-    
-                    // $result=mysqli_query($db,$sql);
-                    if($result){
+                        if($result){
                         while($row=$result->fetch_assoc()){
                             echo '<option value="' . $row['id_client'] . '">' . $row['nom'] . '</option>';
                         }
-                    }
+                        }
                     ?>
                 </select>
                 <select name="activite" id="" class="p-2 w-[48%] rounded-3xl space-y-2 transition-all duration-300 ease-in-out hover:scale-105">
@@ -105,12 +95,10 @@ if (isset($_POST['submit'])){
     $id_activite = $_POST['activite'];
     $date_reservation = $_POST['date_reservation'];
     $statut =$_POST['statut'];
-    // var_dump($id_client, $id_activite, $date_reservation, $statut);
 
     $query = "INSERT INTO reservation(id_client,id_activite,date_reservation,statut)
             VALUES('$id_client','$id_activite','$date_reservation','$statut')";
         $res = $db->query($query);
-
 
 }
 
