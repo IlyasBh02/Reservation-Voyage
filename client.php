@@ -15,7 +15,7 @@ $result = $db->query($sql);
 
 <body class="" style="background-image: url('img/voyag.jpg'); background-size: cover; background-position: center;">
 <header class="bg">
-    <div class="flex justify-around h-14 items-center w-screen bg-blue-700 opacity-90">
+    <div class="flex justify-around h-14  w-full bg-blue-700 opacity-90">
         <div class= "h-full text-white text-2xl">
             <p>Where would you like to do with us ?</p>
         </div>
@@ -84,7 +84,7 @@ $result = $db->query($sql);
 
     ?>
     <div class="flex justify-center items-center text-left">
-        <table class="bg-blue-500 opacity-90 border-collapse border border-blue-500 ">
+        <table class="bg-blue-300 opacity-90 border-collapse border border-blue-500 ">
             <thead class="bg-blue-700 ">
                 <tr class="p-2 text-white text-left">
                     <th class="p-2 border border-blue-400">Id client</th>
@@ -113,8 +113,6 @@ $result = $db->query($sql);
     </div>
     </div>
 </section>
-
-</body>
 <!-- Footer -->
 <footer class="bg-blue-800 h-[10%] text-white py-4 mt-8">
     <div class="max-w-7xl mx-auto text-center">
@@ -126,4 +124,6 @@ $result = $db->query($sql);
       </p>
     </div>
 </footer>
+</body>
+
 </html>

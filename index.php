@@ -20,7 +20,7 @@ if (isset($_POST["submit"]))
 </head>
 <body class="relative" style="background-image: url('img/voyag.jpg'); background-size: cover; background-position: center;">    
 <header class="bg">
-    <div class="flex justify-around h-14 items-center w-screen bg-blue-700 opacity-90">
+    <div class="flex justify-around h-14 items-center w-full bg-blue-700 opacity-90">
         <div class= "h-full text-white text-2xl">
             <p>Where would you like to do with us ?</p>
         </div>
@@ -125,10 +125,8 @@ if (isset($_POST["submit"]))
     </div>
 </section>
 
-    
-</body>
 <!-- Footer -->
-<footer class="bg-blue-800 h-[10%] text-white py-4 mt-8">
+<footer class="bg-blue-800 h-[10%] text-white py-4 mt-20">
     <div class="max-w-7xl mx-auto text-center">
       <p>&copy; 2024 Voyage Inc. Tous droits réservés.</p>
       <p class="mt-2">Suivez-nous sur 
@@ -138,4 +136,6 @@ if (isset($_POST["submit"]))
       </p>
     </div>
 </footer>
+</body>
+
 </html>

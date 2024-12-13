@@ -19,7 +19,7 @@ $result=$db->query($sql);
 
 <body class="" style="background-image: url('img/voyag.jpg'); background-size: cover; background-position: center;">
 <header class="bg">
-    <div class="flex justify-around h-14 items-center w-screen bg-blue-700 opacity-90">
+    <div class="flex justify-around h-14 w-full bg-blue-700 opacity-90">
         <div class= "h-full text-white text-2xl">
             <p>Where would you like to do with us ?</p>
         </div>
@@ -109,7 +109,7 @@ $result=$db->query($sql);
 
     ?>
     <div class="flex justify-center ">
-        <table class="bg-blue-500 opacity-90 border-collapse border border-gray-300 w-[80%] ">
+        <table class="bg-blue-300 opacity-90 border-collapse border border-gray-300 w-[80%] ">
             <thead class="bg-blue-700">
                 <tr class="text-white">
                     <th class="p-2 border border-blue-400">Id reservation</th>
@@ -121,19 +121,16 @@ $result=$db->query($sql);
             </thead>
             <tbody>
             <?php  
-            $query = "SELECT * FROM reservation";
-            $result = $db->query($query);
-            // $query = "
-            // SELECT reservation.id_reservation,reservation.date_reservation, reservation.status, client.nom, activite.titre 
-            // FROM reservation 
-            // JOIN client ON reservation.id_client = client.id_client
-            // JOIN activite ON reservation.id_activite = activite.id_activite"; 
-            // $result = mysqli_query($db_connect,$query);
+            $query = "SELECT reservation.id_reservation,reservation.date_reservation, reservation.statut, client.nom, activite.titre 
+            FROM reservation 
+            JOIN client ON reservation.id_client = client.id_client
+            JOIN activite ON reservation.id_activite = activite.id_activite"; 
+            $result = mysqli_query($db,$query);
             while($row = $result->fetch_assoc()): ?> 
             <tr class="border-blue-200 hover:bg-blue-200">
                 <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_reservation"]; ?></td>
-                <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_client"]; ?></td>
-                <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_activite"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["nom"]; ?></td>
+                <td class="px-3 py-1 border border-blue-400"><?php echo $row["titre"]; ?></td>
                 <td class="px-3 py-1 border border-blue-400"><?php echo$row["date_reservation"]; ?></td>
                 <td class="px-3 py-1 border border-blue-400"><?php echo$row["statut"]; ?></td>
             </tr>
