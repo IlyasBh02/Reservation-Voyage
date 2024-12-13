@@ -104,7 +104,7 @@ $result=$db->query($sql);
         $query = "INSERT INTO reservation(id_client,id_activite,date_reservation,statut)
                 VALUES('$id_client','$id_activite','$date_reservation','$statut')";
             $res = $db->query($query);
-
+            header("Refresh: 0");
     }
 
     ?>

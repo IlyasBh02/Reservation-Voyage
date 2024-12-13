@@ -87,6 +87,7 @@ $result = $db->query($sql);
         $query = "INSERT INTO `activite` (`titre`, `description`, `prix`, `destination`, `date_debut`,`date_fin`, `places_disponibles`) 
                 VALUES ('$titre', '$description', '$prix', '$destination', '$date_debut', '$date_fin', '$places_disponibles')";
         $res = $db->query($query);
+        header("Refresh: 0");
     }   
     // if (mysqli_query($db, $query)) {
     //     echo "Activity added successfully!";

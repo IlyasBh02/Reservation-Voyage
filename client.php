@@ -80,6 +80,7 @@ $result = $db->query($sql);
         $query = "INSERT INTO `client`(`nom`, `prenom`,`email`,`telephone`,`adrress`,`date_naissance`)  
                 VALUE ('$nom', '$prenom','$email','$telephone','$adrress','$date_naissance')";
         $res = $db->query($query);
+        header("Refresh: 0");
     }
 
     ?>
