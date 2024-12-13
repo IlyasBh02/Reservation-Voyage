@@ -127,4 +127,15 @@ if (isset($_POST["submit"]))
 
     
 </body>
+<!-- Footer -->
+<footer class="bg-blue-800 h-[10%] text-white py-4 mt-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <p>&copy; 2024 Voyage Inc. Tous droits réservés.</p>
+      <p class="mt-2">Suivez-nous sur 
+        <a href="#" class="text-blue-400 hover:underline">Facebook</a>, 
+        <a href="#" class="text-blue-400 hover:underline">Twitter</a>, et 
+        <a href="#" class="text-blue-400 hover:underline">Instagram</a>
+      </p>
+    </div>
+</footer>
 </html>
