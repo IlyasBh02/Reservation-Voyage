@@ -123,6 +123,12 @@ $result=$db->query($sql);
             <?php  
             $query = "SELECT * FROM reservation";
             $result = $db->query($query);
+            // $query = "
+            // SELECT reservation.id_reservation,reservation.date_reservation, reservation.status, client.nom, activite.titre 
+            // FROM reservation 
+            // JOIN client ON reservation.id_client = client.id_client
+            // JOIN activite ON reservation.id_activite = activite.id_activite"; 
+            // $result = mysqli_query($db_connect,$query);
             while($row = $result->fetch_assoc()): ?> 
             <tr class="border-blue-200 hover:bg-blue-200">
                 <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_reservation"]; ?></td>
