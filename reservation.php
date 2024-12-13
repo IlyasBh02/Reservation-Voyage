@@ -46,29 +46,29 @@ $result=$db->query($sql);
         <!--================ start form =================-->
         <form action="" method="post" class="bg-blue-500 p-10 w-[50%] rounded-3xl space-y-2">
             <div class="flex justify-between ">
-                <select name=""  id="" class="p-2 w-[48%] rounded-3xl space-y-2 transition-all duration-300 ease-in-out hover:scale-105">
+                <select name="client"  id="" class="p-2 w-[48%] rounded-3xl space-y-2 transition-all duration-300 ease-in-out hover:scale-105">
                     <option >Select client</option>
                     <?php 
-                    $sql="SELECT nom FROM client";
+                    $sql="SELECT * FROM client";
                     $result=$db->query($sql);
     
                     // $result=mysqli_query($db,$sql);
                     if($result){
                         while($row=$result->fetch_assoc()){
-                            echo '<option value="' . $row['nom'] . '">' . $row['nom'] . '</option>';
+                            echo '<option value="' . $row['id_client'] . '">' . $row['nom'] . '</option>';
                         }
                     }
                     ?>
                 </select>
-                <select name="" id="" class="p-2 w-[48%] rounded-3xl space-y-2 transition-all duration-300 ease-in-out hover:scale-105">
+                <select name="activite" id="" class="p-2 w-[48%] rounded-3xl space-y-2 transition-all duration-300 ease-in-out hover:scale-105">
                     <option>Select activite</option>
                     <?php 
-                    $sql="SELECT titre FROM activite";
+                    $sql="SELECT * FROM activite";
                     $result=$db->query($sql);
     
                     if($result){
                         while($row=$result->fetch_assoc()){
-                            echo'<option value"'.$row['titre'].'">'.$row['titre'].'</option>';
+                            echo '<option value="'. $row['id_activite'] . '">' . $row['titre']. '</option>';
                         }
                     }
                     ?>
@@ -76,21 +76,21 @@ $result=$db->query($sql);
             </div>
             <div class="rounded-3xl transition-all duration-300 ease-in-out hover:scale-105">
                     <label for="date_resrvation" class="text-white">Date resrvation :</label>
-                    <input type="date" name="date_resrvation" id="date_resrvation" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
+                    <input type="date" name="date_reservation" id="date_resrvation" class="px-2 py-1 w-full border-solid border-2 rounded-lg transition-all duration-300">
             </div>
             <div class="flex justify-between">
-                <p>Select statut :</p>
+                <p style="text-white">Select statut :</p>
                 <div>
                     <label for="">En attente</label>
-                    <input type="radio">
+                    <input type="radio" id="En_attente" name="statut" value="En attente">
                 </div>
                 <div>
                     <label for="">Confirmee</label>
-                    <input type="radio"> 
+                    <input type="radio" id="Confirmee" name="statut" value="Confirmée"> 
                 </div>
                 <div>
                     <label for="">Annulee</label>
-                    <input type="radio">
+                    <input type="radio" id="Annulee" name="statut" value="Annulée">
                 </div>
             </div>
             <div class="flex justify-center">
@@ -101,42 +101,50 @@ $result=$db->query($sql);
 
 <?php 
 if (isset($_POST['submit'])){
-    $id_reservation = $_POST['id_reservation'];
-    $id_client = $_POST['id_client'];
-    $id_activite = $_POST['id_activite'];
+    $id_client = $_POST['client'];
+    $id_activite = $_POST['activite'];
     $date_reservation = $_POST['date_reservation'];
     $statut =$_POST['statut'];
+    // var_dump($id_client, $id_activite, $date_reservation, $statut);
 
-    $query = "INSERT INTO `reservation`(`id_reservation`,`id_client`,`id_activite`,`date_reservation`,`statut`)
-            VALUE('$id_reservation','$id_client','$id_activite','$date_reservation','$statut')";
-    $res = $db->query($query);
+    $query = "INSERT INTO reservation(id_client,id_activite,date_reservation,statut)
+            VALUES('$id_client','$id_activite','$date_reservation','$statut')";
+        $res = $db->query($query);
+
+
 }
 
 ?>
-
-<table class="border p-2">
-    <thead >
-        <tr>
-            <th>Id reservation</th>
-            <th>Id client</th>
-            <th>Id activite</th>
-            <th>Date reservation</th>
-            <th>Statut</th>
+<div class="flex justify-center ">
+    <table class="bg-blue-500 opacity-90 border-collapse border border-gray-300 ">
+        <thead class="bg-blue-700">
+            <tr class="text-white">
+                <th class="p-2 border border-blue-400">Id reservation</th>
+                <th class="p-2 border border-blue-400">Id client</th>
+                <th class="p-2 border border-blue-400">Id activite</th>
+                <th class="p-2 border border-blue-400">Date reservation</th>
+                <th class="p-2 border border-blue-400">Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php  
+        $query = "SELECT * FROM reservation";
+        $result = $db->query($query);
+        while($row = $result->fetch_assoc()): ?> 
+        <tr class="border-blue-200 hover:bg-blue-200">
+            <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_reservation"]; ?></td>
+            <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_client"]; ?></td>
+            <td class="px-3 py-1 border border-blue-400"><?php echo $row["id_activite"]; ?></td>
+            <td class="px-3 py-1 border border-blue-400"><?php echo$row["date_reservation"]; ?></td>
+            <td class="px-3 py-1 border border-blue-400"><?php echo$row["statut"]; ?></td>
         </tr>
-    </thead>
-    <tbody>
-    <?php  while($row = $result->fetch_assoc()): ?> 
-    <tr>
-      <td><?php echo $row["id_reservation"]; ?></td>
-      <td><?php echo $row["id_client"]; ?></td>
-      <td><?php echo $row["id_activite"]; ?></td>
-      <td><?php echo$row["date_reservation"]; ?></td>
-      <td><?php echo$row["statut"]; ?></td>
-    </tr>
-    <br>
-    <?php endwhile; ?>
-    </tbody>
-</table> 
+        <br>
+        <?php endwhile; ?>
+        </tbody>
+    </table> 
+</div>
+
+
 
 
 </body>
